@@ -1,0 +1,36 @@
+﻿<Window x:Class="StudentViewModel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="listBoxStudent" Height="NaN" Margin="10,10,472,10" Width="NaN" ItemsSource="{Binding Students}" SelectedItem = "{Binding SelectedStudent}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="{Binding id_student}" Width="0"/>
+                        <TextBlock FontSize="18" Text="{Binding Path=SSurname}"/>
+                        <TextBlock Text="{Binding Path=SName}"/>
+                        <TextBlock Text="{Binding Path=SAge}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="Студент:" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Ім'я:" HorizontalAlignment="Left" Margin="366,108,0,0" VerticalAlignment="Top"/>
+        <Label Content="Прізвище:" HorizontalAlignment="Left" Margin="333,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="Вік:" HorizontalAlignment="Left" Margin="372,131,0,0" VerticalAlignment="Top"/>
+
+        <TextBox Text="{Binding Student.SSurname}" x:Name="textBoxName" HorizontalAlignment="Left" Margin="405,112,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266"/>
+        <TextBox Text="{Binding Student.SName}" x:Name="textBoxSurName" HorizontalAlignment="Left" Margin="405,82,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266"/>
+        <TextBox Text="{Binding Student.SAge}" x:Name="textBoxAge" HorizontalAlignment="Left" Margin="405,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266"/>
+        <TextBlock Text="{Binding Student.id_student}" HorizontalAlignment="Left" Margin="405,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Command="{Binding  AddStudentCommand}" Content="Add" HorizontalAlignment="Left" Margin="377,238,0,0" VerticalAlignment="Top" Width="65"/>
+        <Button Command="{Binding  RemoveStudentCommand}" Content="Update" HorizontalAlignment="Left" Margin="474,238,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button Command="{Binding  UpdateStudentCommand}"  Content="Delete" HorizontalAlignment="Left" Margin="588,238,0,0" VerticalAlignment="Top" Width="83"/>
+
+    </Grid>
+</Window>
