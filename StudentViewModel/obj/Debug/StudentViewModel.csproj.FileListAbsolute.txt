@@ -21,3 +21,26 @@ C:\Users\Add\Desktop\StudentViewModel\obj\Debug\StudentViewModel.csproj.CoreComp
 C:\Users\Add\Desktop\StudentViewModel\obj\Debug\StudentViewModel.csproj.CopyComplete
 C:\Users\Add\Desktop\StudentViewModel\obj\Debug\StudentViewModel.exe
 C:\Users\Add\Desktop\StudentViewModel\obj\Debug\StudentViewModel.pdb
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\StudentViewModel.exe.config
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\StudentViewModel.exe
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\StudentViewModel.pdb
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\Dapper.dll
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\EntityFramework.dll
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\Dapper.xml
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\EntityFramework.xml
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.csproj.AssemblyReference.cache
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.csproj.SuggestedBindingRedirects.cache
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\MainWindow.g.cs
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\App.g.cs
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel_MarkupCompile.cache
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel_MarkupCompile.lref
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\MainWindow.baml
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.g.resources
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.Properties.Resources.resources
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.csproj.GenerateResource.cache
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.csproj.CoreCompileInputs.cache
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.csproj.CopyComplete
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.exe
+D:\ДЗ_Шаг\Windows Forms C#\GitHub\ViewModel\StudentViewModel\obj\Debug\StudentViewModel.pdb

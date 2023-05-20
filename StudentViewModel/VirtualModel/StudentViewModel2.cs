@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentViewModel.VirtualModel
@@ -16,12 +17,11 @@ namespace StudentViewModel.VirtualModel
     {
         private string conect = ConfigurationManager.ConnectionStrings["ConnectionDB"].ConnectionString;
         
-        MainWindow mainWindow = new MainWindow();
         private string surname;
         private string name;
         private int age;
         private int id;
-        //private ObservableCollection<Student> students;
+        private ObservableCollection<Student> students;
         private Student selectedStudent;
 
         public int Id
@@ -36,7 +36,7 @@ namespace StudentViewModel.VirtualModel
                 }
             }
         }
-        public string SSurname
+        public string SSurName
         {
             get { return surname; }
             set
@@ -44,7 +44,7 @@ namespace StudentViewModel.VirtualModel
                 if (surname != value)
                 {
                     surname = value;
-                    OnPropertyChanged(nameof(SSurname));
+                    OnPropertyChanged(nameof(SSurName));
                 }
             }
         }
@@ -75,18 +75,18 @@ namespace StudentViewModel.VirtualModel
             }
         }
 
-        //public ObservableCollection<Student> Students
-        //{
-        //    get { return students; }
-        //    set
-        //    {
-        //        if (students != value)
-        //        {
-        //            students = value;
-        //            OnPropertyChanged(nameof(Students));
-        //        }
-        //    }
-        //}
+        public ObservableCollection<Student> Students
+        {
+            get { return students; }
+            set
+            {
+                if (students != value)
+                {
+                    students = value;
+                    OnPropertyChanged(nameof(Students));
+                }
+            }
+        }
 
         public Student SelectedStudent
         {
@@ -100,59 +100,43 @@ namespace StudentViewModel.VirtualModel
                 }
             }
         }
-
-        public ICommand AddStudentCommand { get; set; }
-        public ICommand RemoveStudentCommand { get; set; }
-        public ICommand UpdateStudentCommand { get; set; }
-
+  
         public StudentViewModel2()
         {
-            // Инициализация команд
-            AddStudentCommand = new RelayCommand(AddStudent);
-            RemoveStudentCommand = new RelayCommand(DeleteStudent);
-            UpdateStudentCommand = new RelayCommand(UpdateStudent);
-
             LoadStudent();
         }
 
         private void LoadStudent()
         {
             var studentDataBase = new StudentDataBase(conect);
-            
-            mainWindow.listBoxStudent.Items.Clear();
-            mainWindow.listBoxStudent.ItemsSource = studentDataBase.SelectedStudents();
-            mainWindow.listBoxStudent.DataContext = studentDataBase;
+
+            Students = new ObservableCollection<Student>(studentDataBase.SelectedStudents());
+
+            AddStudentCommand = new RelayCommand(AddStudent);
         }
+
+        public RelayCommand AddStudentCommand { get; private set; }
+
         private void AddStudent()
         {
-            var studentDataBase = mainWindow.listBoxStudent.DataContext as StudentDataBase;
-            if(studentDataBase != null)
-            {
-                studentDataBase.AddStudent(SSurname, SName, SAge);
-                mainWindow.listBoxStudent.ItemsSource = studentDataBase.SelectedStudents();
-            }
-        }
+            var studentDataBase = new StudentDataBase(conect);
 
-        private void UpdateStudent()
-        {
-            var studetDataBase = mainWindow.listBoxStudent.DataContext as StudentDataBase;
-            if(studetDataBase != null && selectedStudent != null)
+            if (SelectedStudent == null)
             {
-                studetDataBase.UpdateStudent(Id, SSurname, SName, SAge);
-                mainWindow.listBoxStudent.ItemsSource = studetDataBase.SelectedStudents();
+                MessageBox.Show("Виберіть студента.", "Увага", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-        }
 
-        private void DeleteStudent()
-        {
-            var studetDataBase = mainWindow.listBoxStudent.DataContext as StudentDataBase;
-            if (studetDataBase != null && mainWindow.listBoxStudent.SelectedItem != null)
+            if (studentDataBase.IsStudentExist(SelectedStudent.SSurName, SelectedStudent.SName))
             {
-                studetDataBase.DeleteStudent(SelectedStudent.id_student);
-                mainWindow.listBoxStudent.ItemsSource = studetDataBase.SelectedStudents();
+                MessageBox.Show("Студент із таким ім'ям та прізвищем вже існує", "Увага", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-        }
 
+            studentDataBase.AddStudent(SelectedStudent.SSurName, SelectedStudent.SName, SelectedStudent.SAge);
+
+            LoadStudent();
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

@@ -27,7 +27,7 @@ namespace StudentViewModel.Model
             return students;
         }
 
-        public bool IsStudentExist(string name, string surname)
+        public bool IsStudentExist(string surname, string name)
         {
             string sqlQuery = "SELECT COUNT(*) FROM Student WHERE SSurName = @Surname AND SName = @Name";
             int count = dbConnection.QuerySingle<int>(sqlQuery, new { Surname = surname, Name = name });
@@ -36,19 +36,14 @@ namespace StudentViewModel.Model
 
         public void AddStudent(string surname, string name, int age)
         {
-            if(IsStudentExist(surname, name))
-            {
-                MessageBox.Show("Студент із таким ім'ям та прізвищем вже існує", "Увага", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            dbConnection.Execute("INSERT INTO Student (SSurname, SName, SAge) VALUES (@Surname, @Name, @Age)",
-                new { Surname = surname, SName = name, Sage = age });
+        
+            dbConnection.Execute("INSERT INTO Student (SSurName, SName, SAge) VALUES (@Surname, @Name, @Age)",
+                new { Surname = surname, Name = name, Age = age });
         }
 
         public void UpdateStudent(int id, string surname, string name, int age)
         {
-            string sql = "UPDATE Student SET SSurname = @Surname, SName = @Name, SAge = @Age WHERE id_student = @id_student";
+            string sql = "UPDATE Student SET SSurname = @SurName, SName = @Name, SAge = @Age WHERE id_student = @id_student";
 
             dbConnection.Execute(sql, new { Surname = surname, SName = name, Age = age, id_student = id });
         }
