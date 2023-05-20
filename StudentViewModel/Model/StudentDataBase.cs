@@ -43,9 +43,9 @@ namespace StudentViewModel.Model
 
         public void UpdateStudent(int id, string surname, string name, int age)
         {
-            string sql = "UPDATE Student SET SSurname = @SurName, SName = @Name, SAge = @Age WHERE id_student = @id_student";
+            string sql = "UPDATE Student SET SSurName = @SurName, SName = @Name, SAge = @Age WHERE id_student = @id_student";
 
-            dbConnection.Execute(sql, new { Surname = surname, SName = name, Age = age, id_student = id });
+            dbConnection.Execute(sql, new { SurName = surname, Name = name, Age = age, id_student = id });
         }
 
         public void DeleteStudent(int id)

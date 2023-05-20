@@ -113,9 +113,14 @@ namespace StudentViewModel.VirtualModel
             Students = new ObservableCollection<Student>(studentDataBase.SelectedStudents());
 
             AddStudentCommand = new RelayCommand(AddStudent);
+            UpdateStudentCommand = new RelayCommand(UpdateStudent);
+            RemoveStudentCommand = new RelayCommand(DeleteStudent);
         }
 
         public RelayCommand AddStudentCommand { get; private set; }
+        public RelayCommand UpdateStudentCommand { get; private set; }
+        public RelayCommand RemoveStudentCommand { get; private set; }
+
 
         private void AddStudent()
         {
@@ -137,6 +142,40 @@ namespace StudentViewModel.VirtualModel
 
             LoadStudent();
         }
+
+        private void UpdateStudent()
+        {
+            var studentDataBase = new StudentDataBase(conect);
+
+            if (SelectedStudent == null)
+            {
+                MessageBox.Show("Виберіть студента.", "Увага", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            studentDataBase.UpdateStudent(SelectedStudent.id_student, SelectedStudent.SSurName, SelectedStudent.SName, SelectedStudent.SAge);
+           
+            LoadStudent();
+        }
+
+        private void DeleteStudent()
+        {
+            var studentDataBase = new StudentDataBase(conect);
+
+            if (SelectedStudent == null)
+            {
+                MessageBox.Show("Виберіть студента.", "Увага", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (MessageBox.Show("Ви точно хочете видалити студента?", "Попередження", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                studentDataBase.DeleteStudent(SelectedStudent.id_student);
+                MessageBox.Show("Успішно видалено", "Успішно", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            LoadStudent();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
