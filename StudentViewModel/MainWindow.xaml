@@ -5,37 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentViewModel" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <!--<Window.DataContext>
-        <local:StudentViewModel2 />
-    </Window.DataContext>-->
-    
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="450" Width="709" WindowStartupLocation="CenterScreen" Icon="/student_.ico">
     <Grid>
 
-        <ListBox x:Name="listBoxStudent" Height="NaN" Margin="10,10,472,10" Width="NaN" ItemsSource="{Binding Students}"  SelectedItem="{Binding SelectedStudent}">
+        <ListBox x:Name="listBoxStudent" Height="NaN" Margin="10,49,0,10" Width="320" ItemsSource="{Binding Students}"  SelectedItem="{Binding SelectedStudent}" HorizontalAlignment="Left">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
-                        <!--<TextBlock Text="{Binding id_student}" Width="0"/>-->
-                        <TextBlock FontSize="18" Text="{Binding SSurName}"/>
+                        <TextBlock Text="{Binding id_student}" Width="0"/>
+                        <TextBlock FontSize="18" Text="{Binding SSurName}" FontWeight="Bold"/>
                         <TextBlock Text="{Binding SName}"/>
                         <TextBlock Text="{Binding SAge}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Студент:" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Ім'я:" HorizontalAlignment="Left" Margin="366,108,0,0" VerticalAlignment="Top"/>
-        <Label Content="Прізвище:" HorizontalAlignment="Left" Margin="333,78,0,0" VerticalAlignment="Top"/>
-        <Label Content="Вік:" HorizontalAlignment="Left" Margin="372,131,0,0" VerticalAlignment="Top"/>
+        <Label Content="Студенти:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#FF21880C"/>
+        <Label Content="Ім'я:" Margin="396,88,0,0" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.885,-0.063" HorizontalAlignment="Left" Width="52"/>
+        <Label Content="Прізвище:" Margin="335,49,0,0" VerticalAlignment="Top" FontSize="22" HorizontalAlignment="Left" Width="113"/>
+        <Label Content="Вік:" Margin="404,127,0,0" VerticalAlignment="Top" FontSize="22" HorizontalAlignment="Left" Width="44"/>
 
-        <TextBox Text="{Binding SelectedStudent.SSurName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="405,86,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266"/>
-        <TextBox Text="{Binding SelectedStudent.SName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="405,109,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266"/>
-        <TextBox Text="{Binding SelectedStudent.SAge, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="405,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266"/>
-        <TextBlock Text="{Binding SelectedStudent.id_student, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="405,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
-        <Button Command="{Binding  AddStudentCommand}" Content="Add" HorizontalAlignment="Left" Margin="354,223,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button Command="{Binding  RemoveStudentCommand}" Content="Update" HorizontalAlignment="Left" Margin="453,223,0,0" VerticalAlignment="Top" Width="85"/>
-        <Button Command="{Binding  UpdateStudentCommand}"  Content="Delete" HorizontalAlignment="Left" Margin="572,223,0,0" VerticalAlignment="Top" Width="83"/>
-
+        <TextBox Text="{Binding SelectedStudent.SSurName, UpdateSourceTrigger=PropertyChanged}" Margin="458,53,24,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontSize="22" Foreground="#FF2923EF"/>
+        <TextBox Text="{Binding SelectedStudent.SName, UpdateSourceTrigger=PropertyChanged}" Margin="458,92,24,0" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#FF2923EF" FontSize="22"/>
+        <TextBox Text="{Binding SelectedStudent.SAge, UpdateSourceTrigger=PropertyChanged}" Margin="458,131,24,0" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#FF2923EF" FontSize="22"/>
+        <!--<TextBlock Text="{Binding SelectedStudent.id_student, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="405,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>-->
+        <Button Command="{Binding  AddStudentCommand}" Content="Додати" HorizontalAlignment="Left" Margin="342,363,0,0" Width="94" FontSize="16" Height="36" VerticalAlignment="Top"/>
+        <Button Command="{Binding  RemoveStudentCommand}" Content="Видалити" Margin="605,363,10,0" FontSize="16" Height="36" VerticalAlignment="Top"/>
+        <Button Command="{Binding  UpdateStudentCommand}"  Content="Оновити" HorizontalAlignment="Left" Margin="470,363,0,0" Width="92" FontSize="16" Height="36" VerticalAlignment="Top"/>
+        <Image Height="147" Margin="342,192,19,0" VerticalAlignment="Top" Source="/pngwssm.png" Stretch="UniformToFill"/>
     </Grid>
 </Window>
